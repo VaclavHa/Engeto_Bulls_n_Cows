@@ -93,17 +93,31 @@ def guess_number():
         
         bulls, cows = compare_values(guessed_number, user_guess)
         
- #############  Result check  #############
+#############  Result check  #############
     
         if bulls == 4:
+            
+            
             print(double_splitter, "\n")
             end_time = datetime.now()
             elapsed_time = (end_time - start_time)
+            
+            save_stats(guess_counter, elapsed_time)
+            
             print(f"Correct, you've guessed the right number {user_guess}!\n")
             print(f"It took you {guess_counter} guesses!\n")
             print(f"Also it took you {elapsed_time}\n")
             print(double_splitter)        
-            break
+            
+            stats = input("Do you wanna check your statistics? Y or press another key to quit: ").lower()
+            
+            if stats == "Y":
+                view_stats()
+                break
+            else:
+                break
+                
+                
         
         else:
             
@@ -119,6 +133,24 @@ def guess_number():
                 
             print(f"You got {bulls} {bull_note} and {cows} {cow_note}")
             print(splitter)
-            
+
+#############  Create statistics file  #############
+
+def save_stats(guess, time_stamp):
+    with open("statistics.txt", "a") as f:
+        f.write(f"{guess}: {time_stamp}")
+
+#############  View statistics file  #############
+
+def view_stats():
+    with open("statistics.txt", "r") as f:
+        lines = f.readlines()
+        print(double_splitter)
+        for line in lines:
+            guess, time = line.strip().split(": ")
+            print(f"Your score is {guess} in {time}.\n")
+    print(double_splitter)
+
+
 if __name__ == "__main__":
     guess_number()
