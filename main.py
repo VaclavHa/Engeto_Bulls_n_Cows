@@ -59,7 +59,6 @@ def guess_number():
     guess_counter = 0
     
     print("To start the game and timer press ENTER: ")
-    start_time = datetime.now()
     
     while True:
         
