@@ -18,8 +18,7 @@ print("Hi there!")
 print(splitter)
 
 
-### Get 4 digits unique number function, that will make sure first number is not 0...
-### and no number is repeated
+#############  Get 4 digits unique number  #############
 
 def get_random_number(): 
 
@@ -33,7 +32,7 @@ def get_random_number():
         print(splitter)
     return secret_number
 
-### Compare values, get bulls or cows
+#############  Compare values, get bulls or cows  #############
 
 def compare_values(secret, guess):
 
@@ -53,7 +52,7 @@ def compare_values(secret, guess):
     return bulls, cows
             
 
-### Guess the number, conditions of guessing
+#############  Guess the number, conditions of guessing  #############
 
 def guess_number():
     
@@ -94,6 +93,8 @@ def guess_number():
         
         bulls, cows = compare_values(guessed_number, user_guess)
         
+ #############  Result check  #############
+    
         if bulls == 4:
             print(double_splitter, "\n")
             end_time = datetime.now()
@@ -120,6 +121,4 @@ def guess_number():
             print(splitter)
             
 if __name__ == "__main__":
-    
-
     guess_number()
