@@ -22,14 +22,17 @@ print(splitter)
 
 def get_random_number(): 
 
-    digits = random.sample(range(1, 10), 1) + random.sample(range(0, 10), 3)
-    while len(set(digits)) != 4:
-        continue
-    else:
-        secret_number = "".join(map(str, digits))
-        print("I've generated a random 4 digit number for you to guess."
-            "Let's play Bulls and Cows game!")
-        print(splitter)
+    while True:
+        digits = random.sample(range(1, 10), 1) + random.sample(range(0, 10), 3)
+        if len(set(digits)) == 4:
+            break
+        
+        
+    secret_number = "".join(map(str, digits))
+    print("I've generated a random 4 digit number for you to guess."
+        "Let's play Bulls and Cows game!")
+    print(splitter)
+    
     return secret_number
 
 #############  Compare values, get bulls or cows  #############
@@ -111,7 +114,7 @@ def guess_number():
             
             stats = input("Do you wanna check your statistics? Y or press another key to quit: ").lower()
             
-            if stats == "Y".lower():
+            if stats == "y":
                 view_stats()
                 break
             else:
