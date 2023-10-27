@@ -111,7 +111,7 @@ def guess_number():
             
             stats = input("Do you wanna check your statistics? Y or press another key to quit: ").lower()
             
-            if stats == "Y":
+            if stats == "Y".lower():
                 view_stats()
                 break
             else:
@@ -138,7 +138,7 @@ def guess_number():
 
 def save_stats(guess, time_stamp):
     with open("statistics.txt", "a") as f:
-        f.write(f"{guess}: {time_stamp}")
+        f.write(f"{guess}: {time_stamp}\n")
 
 #############  View statistics file  #############
 
@@ -148,7 +148,7 @@ def view_stats():
         print(double_splitter)
         for line in lines:
             guess, time = line.strip().split(": ")
-            print(f"Your score is {guess} in {time}.\n")
+            print(f"Guesses: {guess}. Time: {time}\n")
     print(double_splitter)
 
 
