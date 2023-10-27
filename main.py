@@ -12,12 +12,14 @@ import random
 from datetime import datetime
 
 splitter = ('-' * 50)
+double_splitter = ("=" * 50)
 
 print("Hi there!")
 print(splitter)
 
 
-### Get 4 digits unique number
+### Get 4 digits unique number function, that will make sure first number is not 0...
+### and no number is repeated
 
 def get_random_number(): 
 
@@ -58,14 +60,15 @@ def guess_number():
     guessed_number = get_random_number()
     guess_counter = 0
     
-    print("To start the game and timer press ENTER: ")
+    start_time = None
     
     while True:
         
-        if not start_time:
-            start_time = datetime.now()
         
         user_guess = input("Enter a number: ")
+        
+        if not start_time:
+            start_time = datetime.now()
         
         guess_counter += 1
         
@@ -92,11 +95,13 @@ def guess_number():
         bulls, cows = compare_values(guessed_number, user_guess)
         
         if bulls == 4:
+            print(double_splitter, "\n")
             end_time = datetime.now()
-            elasped_time = end_time - start_time
-            print("Correct, you've guessed the right number!")
-            print(f"It took you {guess_counter} guesses!")
-            print(f"Also it took you {elasped_time}.")           
+            elapsed_time = (end_time - start_time)
+            print(f"Correct, you've guessed the right number {user_guess}!\n")
+            print(f"It took you {guess_counter} guesses!\n")
+            print(f"Also it took you {elapsed_time}\n")
+            print(double_splitter)        
             break
         
         else:
