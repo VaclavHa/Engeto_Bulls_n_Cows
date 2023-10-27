@@ -19,13 +19,11 @@ print("Hi there!")
 print(splitter)
 
 
-def get_random_number():
+def get_random_number(): ### Get 4 digits unique number
     
-    random_number = random.randint(1, 9)
-    digits = [1,2,3,4,5,6,7,8,9]
-    digits[random_number - 1] = 0
-    for i in random.sample(digits, 3):
-        random_number = random_number*10 + i
-    print(random_number)
-
-get_random_number()
+    first_number = random.randint(1, 9)
+    last_three_numbers = [random.randint(0, 9) for number in range(3)]
+    unique_number = [first_number] + last_three_numbers
+    random_number_str = "".join(map(str, unique_number))
+    
+    
