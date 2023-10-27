@@ -21,13 +21,26 @@ guess_counter = 0
 
 def get_random_number(): 
     
-    first_number = random.randint(1, 9)
-    last_three_numbers = [random.randint(0, 9) for number in range(3)]
-    unique_number = [first_number] + last_three_numbers
-    secret_number = "".join(map(str, unique_number))
-    print("I've generated a random 4 digit number for you to guess."
-        "Let's play Bulls and Cows game!")
-    
+    digits = random.sample(range(1, 10), 1) + random.sample(range(0, 10), 3)
+    while len(set(digits)) != 4:
+        continue
+    else:
+        secret_number = "".join(map(str, digits))
+        print("I've generated a random 4 digit number for you to guess."
+            "Let's play Bulls and Cows game!")
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Guess the number, conditions of guessing
 
 def guess_the_number():
@@ -47,7 +60,7 @@ def guess_the_number():
             print(splitter)
             continue
             
-        if user_guess[0] == 0:
+        if user_guess[0] == "0":
             print("The number must not start with 0")
             print(splitter)
             continue
