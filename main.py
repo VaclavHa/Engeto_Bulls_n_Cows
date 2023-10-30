@@ -109,7 +109,7 @@ def guess_number():
             
             print(f"Correct, you've guessed the right number {user_guess}!\n")
             print(f"It took you {guess_counter} guesses!\n")
-            print(f"Also it took you {elapsed_time}\n")
+            print(f"Your time is: {elapsed_time}\n")
             print(double_splitter)        
             
             stats = input("Do you wanna check your statistics? Y or press another key to quit: ").lower()
@@ -119,9 +119,7 @@ def guess_number():
                 break
             else:
                 break
-                
-                
-        
+                        
         else:
             
             if bulls == 1:
