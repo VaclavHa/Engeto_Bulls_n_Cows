@@ -25,10 +25,10 @@ def get_random_number():
     while True:
         digits = random.sample(range(1, 10), 1) + random.sample(range(0, 10), 3)
         if len(set(digits)) == 4:
+            secret_number = "".join(map(str, digits))
             break
         
         
-    secret_number = "".join(map(str, digits))
     print("I've generated a random 4 digit number for you to guess."
         "Let's play Bulls and Cows game!")
     print(splitter)
